@@ -1,0 +1,25 @@
+[package]
+name = "rtlambda"
+version = "0.0.1"
+authors = ["Guy Or <guydude1@gmail.com>"]
+description = "A Rust runtime for AWS Lambda and a library for creating custom runtimes."
+license = "MIT OR Apache-2.0"
+readme = "Readme.md"
+edition = "2021"
+repository = "https://github.com/guyo13/rtlambda"
+keywords = ["AWS", "Amazon-Web-Services", "lambda", "runtime"]
+categories = ["web-programming"]
+exclude = ["/.github", "/.vs"]
+
+
+[dependencies]
+ureq = { version = "2.4", optional = true}
+serde = { version = "1" }
+serde_json = { version = "1.0" }
+
+[dev-dependencies]
+serde = { version = "1", features = ["derive"] }
+
+[features]
+default = ["ureq"]
+ureq = ["dep:ureq"]
