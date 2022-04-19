@@ -13,21 +13,21 @@ It keeps dependencies and complexity to a minimum and does not depend on `tokio`
 ## Usage
 To get started, you may adapt the echo-server example:
 
-Add `rtlambda` and `serde` as a dependency to your `Cargo.toml` file:
+Add `Runtime-Aws_Lambda` and `serde` as a dependency to your `Cargo.toml` file:
 
 ```toml
 [dependencies]
-rtlambda = "0.0.1"
+Runtime-Aws_Lambda = "0.0.1"
 serde = { version = "1", features = ["derive"] }
 ```
 
 And in your `main.rs` file:
 ```rust
-use rtlambda::prelude::*;
+use Runtime-Aws_Lambda::prelude::*;
 use serde::Serialize;
 
-// Import the [`default_runtime`] macro from rtlambda.
-#[macro_use] extern crate rtlambda;
+// Import the [`default_runtime`] macro from Runtime-Aws_Lambda.
+#[macro_use] extern crate Runtime-Aws_Lambda;
 
 // Create a struct representing the lambda's response, and derive the [`serde::Serialize`] trait.
 #[derive(Serialize, Clone)]
@@ -75,7 +75,7 @@ fn initialize() -> Result<
             return Err(format!("Empty input, nothing to echo."));
         }
 
-        // rtlambda leaves use-case specific concerns such as event JSON deserialization to the handler.
+        // Runtime-Aws_Lambda leaves use-case specific concerns such as event JSON deserialization to the handler.
         // In this example we do not deserialize the event. Use serde_json or any other library to perform deserialization if needed.
 
         // Echo the event back as a string.
@@ -101,14 +101,14 @@ fn main() {
 Your main function code creates and runs the runtime, which invokes your handler on incoming events and handles errors if any. 
  
  A typical setup consists of:
-* Creating a new binary crate and including `rtlambda` as a dependency in your `Cargo.toml` file.
-* Importing the prelude - `rtlambda::prelude::*` in the `main.rs` file.
+* Creating a new binary crate and including `Runtime-Aws_Lambda` as a dependency in your `Cargo.toml` file.
+* Importing the prelude - `Runtime-Aws_Lambda::prelude::*` in the `main.rs` file.
 * Writing an initialization function that contains one-time initialization code and returns a closure - containing the event handling logic (the business logic of your lambda).
 * In your main function, creating a new `DefaultRuntime` passing the Lambda API version and a pointer to your initialization function.
 * Calling the `run()` method on the runtime instance to start the runtime.
 
 ### As a framework
-`rtlambda`'s API utilizes generic traits - with bounds on their type parameters - to define its interface.
+`Runtime-Aws_Lambda`'s API utilizes generic traits - with bounds on their type parameters - to define its interface.
 
 This design minimizes dynamic dispatch calls while allowing the user to:
 * Define their own output and error types.
@@ -122,7 +122,7 @@ Output types should currently implement the [serde::Serialize](https://docs.serd
 Error types should implement [std::fmt::Display](https://doc.rust-lang.org/std/fmt/trait.Display.html).
 
 ## Build and Deploy
-`rtlambda` is designed to be built into a single executable that contains both your function code and the runtime itself (In AWS terms the runtime "is embedded in the function deployment package").
+`Runtime-Aws_Lambda` is designed to be built into a single executable that contains both your function code and the runtime itself (In AWS terms the runtime "is embedded in the function deployment package").
 
 AWS currently allows you to deploy your function on either `x86` or `aarch64` based machines with either the Amazon Linux 2 OS or the legacy Amazon Linux.
 

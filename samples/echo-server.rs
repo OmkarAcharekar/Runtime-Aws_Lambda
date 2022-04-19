@@ -1,9 +1,9 @@
-use rtlambda::prelude::*;
+use Runtime-Aws_Lambda::prelude::*;
 use serde::Serialize;
 
-// Import the [`default_runtime`] macro from rtlambda.
+// Import the [`default_runtime`] macro from Runtime-Aws_Lambda.
 #[macro_use]
-extern crate rtlambda;
+extern crate Runtime-Aws_Lambda;
 
 // Create a struct representing the lambda's response, and derive the [`serde::Serialize`] trait.
 #[derive(Serialize, Clone)]
