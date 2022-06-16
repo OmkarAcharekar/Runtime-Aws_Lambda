@@ -1,5 +1,5 @@
 # Runtime-Aws_Lambda
-A Rust runtime for AWS Lambda and a library for creating custom runtimes.
+
 
 
 A Rust runtime for [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) and a library for creating custom runtimes.
