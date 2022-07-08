@@ -2,7 +2,7 @@
 
 
 
-A Rust runtime for [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) and a library for creating custom runtimes.
+A Rust runtime for [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) and a library for creating runtimes.
 
 The default runtime implementation shipped  lets you write native Rust event handlers for AWS Lambda.
  
