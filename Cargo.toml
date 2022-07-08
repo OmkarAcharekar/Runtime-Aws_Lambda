@@ -2,7 +2,7 @@
 name = "Runtime-Aws_Lambda"
 version = "0.0.1"
 authors = ["Omkar Or <omkaracharekar@gmail.com>"]
-description = "A Rust runtime for AWS Lambda and a library for creating custom runtimes."
+description = "A Rust runtime for AWS Lambda"
 license = "MIT OR Apache-2.0"
 readme = "Readme.md"
 edition = "2021"
